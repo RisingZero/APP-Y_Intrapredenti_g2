@@ -1,0 +1,7 @@
+{
+  "name": "appy_frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

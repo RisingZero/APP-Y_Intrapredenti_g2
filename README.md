@@ -7,8 +7,8 @@ L'applicazione utilizza la coppia framework Ionic + Angular
 *Documentazione*
 | Framework | Url |
 |-----------|-----|
-| Ionic | [docs]{https://ionicframework.com/docs} |
-| Angular | [docs]{https://angular.io/docs} |
+| Ionic | [docs](https://ionicframework.com/docs) |
+| Angular | [docs](https://angular.io/docs) |
 
 Per lanciare l'aplpicazione 
 

@@ -7,10 +7,10 @@ L'applicazione utilizza la coppia framework Ionic + Angular
 *Documentazione*
 | Framework | Url |
 |-----------|-----|
-| Ionic | [docs]{https://ionicframework.com/docs} |
-| Angular | [docs]{https://angular.io/docs} |
+| Ionic | [docs](https://ionicframework.com/docs) |
+| Angular | [docs](https://angular.io/docs) |
 
-Per lanciare l'aplpicazione 
+Per lanciare l'applicazione 
 
 ## Backend (Go)
 Il backend si basa su un web server http che fornisce endpoint api RESTful

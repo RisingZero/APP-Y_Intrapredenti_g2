@@ -13,7 +13,7 @@ L'applicazione utilizza la coppia framework Ionic + Angular
 Per lanciare l'applicazione:
 ```bash
 cd appy_frontend
-ionic start
+ionic serve
 ```
 
 ## Backend (Go)

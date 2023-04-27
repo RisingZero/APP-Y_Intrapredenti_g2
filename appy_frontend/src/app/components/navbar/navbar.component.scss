@@ -5,10 +5,14 @@ ion-tab-bar {
     border: none;
     border-radius: 40px;
 
+    ion-tab-button {
+        color: var(--ion-color-dark);
+    }
+
     ion-tab-button.tab-selected {
         height: 80%;
         padding: 0 10px;
-        color: var(--ion-color-light);
+        color: var(--ion-color-primary-contrast);
         background-color: var(--ion-color-primary);
         border-radius: 40px;
 

@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { ComponentsModule } from './components/components.module';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,7 @@ import { ComponentsModule } from './components/components.module';
   styleUrls: ['app.component.scss'],
   standalone: true,
   imports: [
+    CommonModule,
     IonicModule,
     ComponentsModule
   ],

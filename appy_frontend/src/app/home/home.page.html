@@ -1,5 +1,53 @@
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" scroll-y="false">
   <div id="container">
-    
+
+    <div class="welcome-box">
+      <div id="welcome-message">Ciao,<br><span [style.color]="'var(--ion-color-primary)'">{{user.name}}</span></div>
+      <div id="quick-survey-btn" (click)="onSurveyClick()">
+        <ion-icon name="add-outline"></ion-icon>
+      </div>
+    </div>
+
+    <div class="user-progress-box">
+      <div class="user-progress-circle">
+        <svg #userProgressBar viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" data-value="1">
+          <circle r="45" cx="50" cy="50" />
+          <!-- 282.78302001953125 is auto-calculated by path.getTotalLength() -->
+          <path class="meter" d="M5,50a45,45 0 1,0 90,0a45,45 0 1,0 -90,0" stroke-linecap="round" stroke-linejoin="round" stroke-dashoffset="282.78302001953125" stroke-dasharray="282.78302001953125" />
+          <!-- Value automatically updates based on data-value set above -->
+          <text x="50" y="50" text-anchor="middle" dominant-baseline="central" font-size="40">{{user.level}}</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="boost-box">
+      <div class="boost-progress-track">
+        <div class="boost-progress-human">Boost: {{user.boostTimeRemainingHuman}} rim.</div>
+        <div #boostProgressBar class="boost-progress-bar"></div>
+        <div class="boost-btn" (click)="onBoostClick()">
+          <ion-icon name="star-outline"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="challenge-carousel-box">
+      <div class="challenge-carousel-item" *ngFor="let challenge of dailyChallengeCards">
+          <div>
+            {{challenge.title}}
+            <ion-button [style.--background]="challenge.color" shape="round" size="small">
+              {{(challenge.completed) ? 'completata' : 'vai '}}
+              <ion-icon *ngIf="!challenge.completed" name="arrow-forward-outline" slot="end"></ion-icon>
+            </ion-button>
+          </div>
+
+          <div>
+            <svg class="challenge-icon-bg" width="100" height="139" viewBox="0 0 123 139" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M56.5 1.88675C59.594 0.100422 63.406 0.100423 66.5 1.88675L117.555 31.3633C120.649 33.1496 122.555 36.4508 122.555 40.0235V98.9765C122.555 102.549 120.649 105.85 117.555 107.637L66.5 137.113C63.406 138.9 59.594 138.9 56.5 137.113L5.44521 107.637C2.3512 105.85 0.44521 102.549 0.44521 98.9765V40.0235C0.44521 36.4508 2.3512 33.1496 5.44521 31.3632L56.5 1.88675Z" [attr.fill]="challenge.color"/>
+            </svg>
+            <div class="challenge-icon" [innerHTML]="challenge.icon"></div>
+          </div>
+      </div>
+    </div>
+
   </div>
 </ion-content>

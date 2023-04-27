@@ -60,14 +60,19 @@
         font-weight: bold;
       }
     }
-    #name-box{
-      
-      font-weight: bold;
-    }
-    #username-box{
-      font-size: 2em;
-      font-weight: 700;
-    }
   }
-  
+}
+
+
+.level-progress-bar {
+  background-color: var(--ion-color-primary);
+  height: 15px;
+  width: 70%;
+  border-radius: 10pt;
+}
+.level-progress-bar::after{
+  position: inherit;
+  height: 10px;
+  width: 60%;
+  background-color:white;
 }

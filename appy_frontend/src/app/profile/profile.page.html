@@ -15,16 +15,13 @@
       </div>
     </div>
 
-    <div style="position: absolute;top:30px;right: 90px;">
-      <div style="font-size: 25px;font-weight: bold;color: var(--ion-color-primary);">{{user.name}} {{user.surname}}</div>
+    <div style="position: absolute;top:30px;right: 10%;">
+      <div style="font-size: 20px;font-weight: bold;color: var(--ion-color-primary);">{{user.name}} {{user.surname}}</div>
       <div style="font-size: 15px;">@{{user.username}}</div>
     </div>
   </div>
 
-  <div s>
-    {{user.level}}<div class="level-progress-bar"></div> {{user.level+1}}
-  </div>
-
+  {{user.level}}<div class="level-progress-bar"></div>{{user.level+1}}
 
 
 </ion-content>

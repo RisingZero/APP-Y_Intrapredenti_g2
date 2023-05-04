@@ -1,3 +1,9 @@
+.background{
+  height: 100%;
+  width: 100%;
+  background-color: aqua;
+}
+
 .profile-header{
   margin: 50px auto;
   width: 85%;
@@ -77,4 +83,53 @@
   }
 }
 
+.profile-body{
+  background-color: var(--ion-color-medium);
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top:50px;
+  border-radius: 25px;
+}
 
+.profile-challenges{
+  position: relative;
+  left: 10%;
+  top: 30px;
+
+  .profile-challenges-badges{
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+  }
+}
+
+.profile-interests{
+  position: relative;
+  left: 10%;
+  top: 30px;
+  width: 80%;
+  height: 150px;
+  overflow-y:visible;
+
+  .profile-interests-box{
+    width: 100%;
+    height: 90%;
+    display: block;
+    overflow-y:scroll;
+  
+    .profile-interests-interest{
+      background-color: chartreuse;
+      display: inline-flex;
+      width: 35%;
+      height: 50px;
+      border-radius: 25px;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+  }
+
+  
+}

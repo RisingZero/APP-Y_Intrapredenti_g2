@@ -5,6 +5,7 @@ import { ComponentsModule } from '../components/components.module';
 
 import { User, DailyChallengeCard } from '../../_models';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ApiService } from '../_services';
 
 @Component({
   selector: 'app-home',
@@ -27,6 +28,7 @@ export class HomePage implements OnInit {
 
   constructor(
     private sanitizer: DomSanitizer,
+    private api: ApiService
   ) {
     this.user = {
       name: '',
@@ -63,21 +65,10 @@ export class HomePage implements OnInit {
 
   async ionViewWillEnter() {
     // Fetch user data and update ui bars
-    this.user = {
-      name: 'Lorenzo',
-      surname: 'Rossi',
-      username: 'lorenzo.rossi',
-      level: 3,
-      levelChall1: 43,
-      levelChall2: 87,
-      levelChall3: 100,
-      boostTimeRemaining: 23,
-      boostTimeRemainingHuman: '45m',
-      experience: 7000
-    }
+    this.user = this.api.getUser('filippo.rossi');
 
     // simulate network fetch time
-    await new Promise(r => setTimeout(r, 2000));
+    await new Promise(r => setTimeout(r, 1000));
 
     this.updateBoostProgressBar(100-this.user.boostTimeRemaining);
     this.updateUserProgressBar(

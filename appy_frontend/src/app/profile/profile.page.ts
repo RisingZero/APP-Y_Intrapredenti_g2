@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { User} from '../../_models';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ApiService } from '../_services';
 
 @Component({
   selector: 'app-profile',
@@ -19,7 +20,10 @@ export class ProfilePage implements OnInit {
 
   user: User;
 
-  constructor(private sanitizer: DomSanitizer,) {
+  constructor(
+    private sanitizer: DomSanitizer,
+    private api: ApiService
+  ) {
     this.user = {
       name: '',
       surname: '',
@@ -39,18 +43,10 @@ export class ProfilePage implements OnInit {
 
   async ionViewWillEnter() {
     // Fetch user data and update ui bars
-    this.user = {
-      name: 'Lorenzo',
-      surname: 'Rossi',
-      username: 'lorenzo.rossi',
-      level: 3,
-      levelChall1: 43,
-      levelChall2: 87,
-      levelChall3: 100,
-      boostTimeRemaining: 23,
-      boostTimeRemainingHuman: '45m',
-      experience: 7000
-    }
+    this.user = this.api.getUser('filippo.rossi');
+
+    await new Promise(r => setTimeout(r, 1000));
+
     this.updateUserProgressBar(
       1/3 * this.user.levelChall1 +
       1/3 * this.user.levelChall2 +

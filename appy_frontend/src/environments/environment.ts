@@ -1,3 +1,4 @@
 export const environment = {
-  production: false
+  production: false,
+  apiHost: 'locahost:3000'
 };

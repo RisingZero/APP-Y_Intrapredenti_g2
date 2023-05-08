@@ -1,11 +1,18 @@
 <ion-content [fullscreen]="true" scroll-y="false">
   <div id="container">
 
-    <div class="welcome-box">
-      <div id="welcome-message">Ciao,<br><span [style.color]="'var(--ion-color-primary)'">{{user.name}}</span></div>
-      <div id="quick-survey-btn" (click)="onSurveyClick()">
-        <ion-icon name="add-outline"></ion-icon>
-      </div>
+    <div class="header-box">
+      <div class="welcome-box">
+        <div id="welcome-message">Ciao<br><span [style.color]="'var(--ion-color-primary)'">{{user.name}}</span></div>
+        <div id="quick-survey-btn" (click)="onSurveyClick()">
+          <ion-icon src="../../assets/svgs/daily-feedback-icon.svg"></ion-icon>
+        </div>
+      </div>       
+    </div>
+    <div class="header-bottom-curved">
+      <svg width="500" height="170" viewBox="0 0 500 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M500 0V101.931C497.616 102.132 495.493 102.264 493.389 102.558C482.967 103.986 473.405 107.931 464.314 112.996C454.962 118.205 445.828 123.801 436.517 129.085C428.739 133.499 420.728 137.426 411.624 138.215C402.598 139 394.514 136.936 388.61 129.537C385.984 126.243 383.577 122.779 381.405 119.169C372.414 104.228 362.777 89.7711 351.406 76.4895C338.575 61.5027 323.47 49.6225 305.315 41.7358C284.153 32.5417 262.015 29.3248 239.086 30.8881C222.274 32.0336 206.196 36.0522 191.159 43.6617C162.789 58.0123 142.217 80.0878 128.749 108.652C124.18 118.342 121.166 128.767 117.457 138.863C114.489 146.949 110.886 154.671 104.866 161.024C96.6315 169.716 82.5481 173.973 70.151 164.845C66.16 161.907 62.3835 158.629 58.7801 155.22C51.5509 148.382 44.6867 141.153 37.3395 134.449C30.0299 127.783 21.7217 122.601 11.9957 120.053C8.10124 119.018 4.16166 118.306 0 118.564V0H500Z" fill="white"/>
+      </svg> 
     </div>
 
     <div class="user-progress-box">

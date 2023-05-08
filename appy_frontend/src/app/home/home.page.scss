@@ -1,36 +1,59 @@
-.welcome-box {
-  width: 85%;
-  margin: 25px auto;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  
-  #welcome-message {
-    font-size: 2em;
-    font-weight: 700;
-  }
+#container {
+  height: 100%;
+  background: rgb(71,71,249);
+  background: linear-gradient(180deg, rgba(71,71,249,1) 50%, rgba(35,35,167,1) 100%);
+}
 
-  #quick-survey-btn {
+
+.header-box {
+  background-color: white;
+
+  .welcome-box {
+    width: 85%;
+    margin: auto;
+    padding: 25px 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 46px;
-    height: 46px;
-    background-color: var(--ion-color-primary);
-    border-radius: 50%;
-    color: var(--ion-color-primary-contrast);
-    position: absolute;
-    bottom: calc(50% - 46px/2);
-    right: 0;
+    justify-content: space-between;
+    position: relative;
+    
+    #welcome-message {
+      font-size: 2em;
+      font-weight: 700;
+    }
 
-    ion-icon {
-      font-size: 1.7em;
+    #quick-survey-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 60px;
+      height: 60px;
+      background-color: var(--ion-color-primary);
+      border-radius: 50%;
+      color: var(--ion-color-primary-contrast);
+      position: absolute;
+      bottom: calc(50% - 60px/2);
+      right: 0;
+
+      ion-icon {
+        font-size: 1.7em;
+      }
     }
   }
 }
 
+.header-bottom-curved {
+  width: 100%;
+  position: absolute;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    transform: scale(1.1);
+  }
+}
+
 .user-progress-box {
-  margin: 50px 0;
+  margin: 25px 0;
 
   .user-progress-circle {
     background-color: var(--ion-color-primary);

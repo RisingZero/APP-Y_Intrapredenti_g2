@@ -29,9 +29,9 @@ export class ProfilePage implements OnInit {
       surname: '',
       username: '',
       level: -1,
-      levelChall1: 0,
-      levelChall2: 0,
-      levelChall3: 0,
+      expProgress: 0,
+      sfideProgress: 0,
+      challProgress: 0,
       boostTimeRemaining: 100,
       boostTimeRemainingHuman: '0s',
       experience: -1
@@ -43,14 +43,14 @@ export class ProfilePage implements OnInit {
 
   async ionViewWillEnter() {
     // Fetch user data and update ui bars
-    this.user = this.api.getUser('filippo.rossi');
+    this.user = this.api.getUser('lorenzo.rossi');
 
     await new Promise(r => setTimeout(r, 1000));
 
     this.updateUserProgressBar(
-      1/3 * this.user.levelChall1 +
-      1/3 * this.user.levelChall2 +
-      1/3 * this.user.levelChall3
+      1/3 * this.user.expProgress +
+      1/3 * this.user.sfideProgress +
+      1/3 * this.user.challProgress
     );
   }
 

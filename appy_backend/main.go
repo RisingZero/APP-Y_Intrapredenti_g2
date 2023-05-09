@@ -2,6 +2,7 @@ package main
 
 import (
 	"appy/web/controllers"
+	"appy/web/models"
 	"fmt"
 	"os"
 
@@ -10,7 +11,7 @@ import (
 )
 
 func main() {
-	err := godotenv.Load()
+	err := godotenv.Load(".env", "../.env")
 	if err != nil {
 		panic("Error loading .env file")
 	}
@@ -22,6 +23,8 @@ func main() {
 	api.POST("/login", controllers.Login)
 	api.POST("/register", controllers.Register)
 	api.POST("/pwdrecover", controllers.RecoverPassword)
+
+	models.ConnectDatabase()
 
 	// gin.SetMode(gin.ReleaseMode)
 	// or

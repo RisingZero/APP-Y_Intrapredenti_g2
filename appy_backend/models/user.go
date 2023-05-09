@@ -16,14 +16,14 @@ type User struct {
 }
 
 func (u *User) Insert() (*User, error) {
-	err := DB.Create(&u).Error
+	err := DB.Create(u).Error
 	if err != nil {
 		return &User{}, err
 	}
 	return u, nil
 }
 
-func (u *User) BeforeSave() error {
+func (u *User) BeforeCreate() error {
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(u.Password), bcrypt.DefaultCost)
 	if err != nil {
 		return err

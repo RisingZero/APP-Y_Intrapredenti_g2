@@ -3,9 +3,9 @@ export type User = {
     surname: string;
     username: string;
     level: number;
-    levelChall1: number;
-    levelChall2: number;
-    levelChall3: number;
+    expProgress: number;
+    sfideProgress: number;
+    challProgress: number;
     boostTimeRemaining: number;
     boostTimeRemainingHuman: string;
     experience: number;

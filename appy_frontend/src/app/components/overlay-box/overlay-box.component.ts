@@ -1,12 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, Output, ViewChild } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition
-} from '@angular/animations';
 
 @Component({
   selector: 'app-overlay-box',

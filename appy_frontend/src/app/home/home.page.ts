@@ -1,10 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { ComponentsModule } from '../components/components.module';
 
 import { User, DailyChallengeCard } from '../../_models';
-import { DomSanitizer } from '@angular/platform-browser';
 import { ApiService } from '../_services';
 
 @Component({
@@ -24,12 +23,17 @@ export class HomePage implements OnInit {
   @ViewChild('sfideProgress') sfideProgressBar: any;
   @ViewChild('challProgress') challProgressBar: any;
   @ViewChild('boostProgressBar') boostProgressBar: any;
+  modalProgressCircleDraw: string = '1,999';
 
   user: User;
   dailyChallengeCards: DailyChallengeCard[] = [];
 
+  isModalProgressOpen: boolean = false;
+  modalProgressTitle: string = '';
+  modalProgressColor: string = '';
+
+
   constructor(
-    private sanitizer: DomSanitizer,
     private api: ApiService
   ) {
     this.user = {
@@ -74,6 +78,33 @@ export class HomePage implements OnInit {
   updateBoostProgressBar(value: number) {
     const realValue = value / 100 * 80;
     this.boostProgressBar.nativeElement.style.width = `${realValue}%`;
+  }
+
+  openModal(type: 'exp' | 'sfide' | 'chall') {
+    this.isModalProgressOpen = true;
+    
+    let roundPercent = 1;
+    if (type === 'exp') {
+      roundPercent = this.user.expProgress;
+      this.modalProgressTitle = 'Esperienza';
+      this.modalProgressColor = '#26B5A0';
+    } else if (type === 'sfide') {
+      roundPercent = this.user.sfideProgress;
+      this.modalProgressTitle = 'Sfide';
+      this.modalProgressColor = '#BEB3FF';
+    } else if (type === 'chall') {
+      roundPercent = this.user.challProgress;
+      this.modalProgressTitle = 'Challenge';
+      this.modalProgressColor = '#FFB985';
+    }
+
+    const roundRadius = 107.5;
+    const roundCircum = 2 * roundRadius * Math.PI;
+    this.modalProgressCircleDraw = (roundPercent * roundCircum / 100).toFixed(2) + ',999';
+  }
+
+  closeModal() {
+    this.isModalProgressOpen = false;
   }
 
   onSurveyClick() {

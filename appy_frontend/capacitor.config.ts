@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'it.polito.appy',
   appName: 'appy_frontend',
   webDir: 'www',
   bundledWebRuntime: false

@@ -28,4 +28,8 @@ export class OverlayBoxComponent implements AfterViewInit {
     this.onClickClose.emit(['closed']);
   }
 
+  dontPropagate(ev: any) {
+    ev.stopPropagation();
+  }
+
 }

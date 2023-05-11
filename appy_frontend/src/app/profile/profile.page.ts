@@ -17,8 +17,10 @@ import { ApiService } from '../_services';
 export class ProfilePage implements OnInit {
 
   @ViewChild('userProgressBar') userProgressBar: any;
+  @ViewChild('levelProgressBar') levelProgressBar: any;
 
   user: User;
+  progress=0;
 
   constructor(
     private sanitizer: DomSanitizer,
@@ -37,13 +39,13 @@ export class ProfilePage implements OnInit {
       experience: -1
     };
    }
-
+  
   ngOnInit():void {
   }
 
   async ionViewWillEnter() {
     // Fetch user data and update ui bars
-    this.user = this.api.getUser('lorenzo.rossi');
+    this.user = this.api.getUser('Lorenzo.rossi');
 
     await new Promise(r => setTimeout(r, 1000));
 
@@ -68,7 +70,7 @@ export class ProfilePage implements OnInit {
       // Set the Offset
       path.style.strokeDashoffset = Math.max(0, to);
     });
+    this.levelProgressBar.nativeElement.style.width = `${value}%`;
   }
-
   
 }

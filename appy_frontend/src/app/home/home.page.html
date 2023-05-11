@@ -3,7 +3,7 @@
 
     <div class="header-box">
       <div class="welcome-box">
-        <div id="welcome-message">Ciao<br><span [style.color]="'var(--ion-color-primary)'">{{user.name}}</span></div>
+        <div id="welcome-message"><div>Ciao</div><div [style.color]="'var(--ion-color-primary)'">{{user.name}}</div></div>
         <div id="quick-survey-btn" (click)="onSurveyClick()">
           <ion-icon src="../../assets/svgs/daily-feedback-icon.svg"></ion-icon>
         </div>
@@ -17,35 +17,43 @@
 
     <div class="user-progress-box">
       <div class="user-progress-circle">
-        <svg #userProgressBar viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" data-value="1">
-          <circle r="45" cx="50" cy="50" />
-          <!-- 282.78302001953125 is auto-calculated by path.getTotalLength() -->
-          <path class="meter" d="M5,50a45,45 0 1,0 90,0a45,45 0 1,0 -90,0" stroke-linecap="round" stroke-linejoin="round" stroke-dashoffset="282.78302001953125" stroke-dasharray="282.78302001953125" />
-          <!-- Value automatically updates based on data-value set above -->
-          <text x="50" y="50" text-anchor="middle" dominant-baseline="central" font-size="40">{{user.level}}</text>
-        </svg>
+        <p>{{user.level}}</p>
       </div>
+      <svg width="217" height="218" viewBox="0 0 217 218" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- top-left track -->
+        <path opacity="0.1" (click)="openModal('exp')" d="M21.5727 149.209C15.6671 136.484 12.6174 122.622 12.6376 108.594C12.6376 65.287 41.1633 28.6401 80.451 16.4214" stroke="white" stroke-width="24.9739" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- bottom track -->
+        <path opacity="0.1" (click)="openModal('sfide')" d="M203.462 129.186C194.027 172.594 155.364 205.107 109.148 205.107C89.9566 205.144 71.1939 199.432 55.2784 188.707" stroke="white" stroke-width="24.9739" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- top-right track -->
+        <path opacity="0.1" (click)="openModal('chall')" d="M124.881 13.3594C144.171 16.5563 162.037 25.5309 176.118 39.0972C190.198 52.6634 199.831 70.1829 203.744 89.3402" stroke="white" stroke-width="24.9739" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- top-left bar -->
+        <path #expProgress (click)="openModal('exp')" d="M21.5727 149.209C15.6671 136.484 12.6174 122.622 12.6376 108.594C12.6376 65.287 41.1633 28.6401 80.451 16.4214" stroke="#26B5A0" stroke-width="24.9739" stroke-miterlimit="10" stroke-linecap="round" stroke-dashoffset="0" stroke-dasharray="1,2000" />
+        <!-- bottom bar -->
+        <path #sfideProgress (click)="openModal('sfide')" d="M203.462 129.186C194.027 172.594 155.364 205.107 109.148 205.107C89.9566 205.144 71.1939 199.432 55.2784 188.707" stroke="#BDB4FF" stroke-width="24.9739" stroke-miterlimit="10" stroke-linecap="round" stroke-dashoffset="0" stroke-dasharray="1,2000" />
+        <!-- top-right bar -->
+        <path #challProgress (click)="openModal('chall')" d="M124.881 13.3594C144.171 16.5563 162.037 25.5309 176.118 39.0972C190.198 52.6634 199.831 70.1829 203.744 89.3402" stroke="#FFB985" stroke-width="24.9739" stroke-miterlimit="10" stroke-linecap="round" stroke-dashoffset="0" stroke-dasharray="1,2000"/>
+      </svg>        
     </div>
 
     <div class="boost-box">
       <div class="boost-progress-track">
-        <div class="boost-progress-human">Boost: {{user.boostTimeRemainingHuman}} rim.</div>
+        <div class="boost-progress-human">{{user.boostTimeRemainingHuman}}</div>
         <div #boostProgressBar class="boost-progress-bar"></div>
         <div class="boost-btn" (click)="onBoostClick()">
-          <ion-icon name="star-outline"></ion-icon>
+          <ion-icon src="../../assets/svgs/star-icon.svg"></ion-icon>
         </div>
       </div>
     </div>
 
     <div class="challenge-carousel-box">
       <div class="challenge-carousel-item" *ngFor="let challenge of dailyChallengeCards">
-          <div>
+          <div class="chall-title">
             {{challenge.title}}
-            <ion-button [style.--background]="challenge.color" shape="round" size="small">
-              {{(challenge.completed) ? 'completata' : 'vai '}}
-              <ion-icon *ngIf="!challenge.completed" name="arrow-forward-outline" slot="end"></ion-icon>
-            </ion-button>
           </div>
+
+          <ion-button color="primary" shape="round" size="small">
+            {{(challenge.completed) ? 'COMPLETATA' : 'INIZIA'}}
+          </ion-button>
 
           <div>
             <svg class="challenge-icon-bg" width="100" height="139" viewBox="0 0 123 139" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -54,7 +62,22 @@
             <div class="challenge-icon" [innerHTML]="challenge.icon"></div>
           </div>
       </div>
+      <div class="challenge-carousel-item">
+        <ion-button color="primary" shape="round" size="large">
+          TUTTE LE SFIDE
+        </ion-button>
+      </div>
     </div>
+
+    <app-overlay-box (onClickClose)="closeModal()" *ngIf="isModalProgressOpen">
+      <h1 class="progress-modal-title">{{modalProgressTitle}}</h1>
+      <div class="progress-modal-circle-box">
+        <svg width="245" height="245" viewBox="0 0 245 245" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="122.5" cy="122.5" r="107.5" [style.stroke]="modalProgressColor" stroke-opacity="0.2" stroke-width="30"/>
+          <circle #progressOverlayMeter id="progress-modal-circle-meter"  cx="122.5" cy="122.5" r="107.5" [style.stroke]="modalProgressColor" [style.strokeDasharray]="modalProgressCircleDraw" stroke-linecap="round" stroke-width="30" />
+        </svg>  
+      </div>
+    </app-overlay-box>
 
   </div>
 </ion-content>

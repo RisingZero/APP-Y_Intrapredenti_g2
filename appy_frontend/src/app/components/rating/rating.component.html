@@ -1,0 +1,9 @@
+<div class="rating-box" [style]="'--rating-primary: ' + primary + '; --rating-secondary: ' + secondary + ';'">
+  <div class="line" [style.backgroundColor]="primary"></div>
+  <div 
+    #ratingBtn
+    class="rating-circle" 
+    *ngFor="let i of values"
+    (click)="selectRating(i)"
+  ></div>
+</div>

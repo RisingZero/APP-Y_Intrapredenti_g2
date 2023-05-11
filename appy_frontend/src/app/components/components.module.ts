@@ -4,11 +4,13 @@ import { IonicModule } from '@ionic/angular';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { OverlayBoxComponent } from './overlay-box/overlay-box.component';
+import { RatingComponent } from './rating/rating.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    OverlayBoxComponent
+    OverlayBoxComponent,
+    RatingComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { OverlayBoxComponent } from './overlay-box/overlay-box.component';
   ],
   exports: [
     NavbarComponent,
-    OverlayBoxComponent
+    OverlayBoxComponent,
+    RatingComponent
   ]
 })
 export class ComponentsModule { }

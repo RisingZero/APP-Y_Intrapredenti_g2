@@ -1,0 +1,28 @@
+.rating-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    .line {
+        width: 100%;
+        height: 4px;
+        position: absolute;
+    }
+
+    .rating-circle {
+        border: none;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        box-sizing: border-box;
+        position: relative;
+
+        background-color:  var(--rating-primary);
+    }
+
+    .selected {
+        background-color: var(--rating-secondary);
+        border: 5px solid var(--rating-primary);
+    }
+}

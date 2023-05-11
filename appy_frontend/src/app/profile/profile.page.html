@@ -23,15 +23,19 @@
 
   <div class="profile-progress-bar">
     <div>{{user.level}}</div>
-    <div class="level-progress-bar"></div>
+    <div class="level-progress-bar">
+      <div class="level-progress-bar-empty">
+        <div #levelProgressBar class="level-progress-bar-inner"                                                                   ></div>
+      </div>
+    </div>
     <div>{{user.level+1}}</div>
   </div>
 
   <div class="profile-body">
     <div class="profile-challenges">
       Challenge
-      <div class="profile-challenges-badges">
-          
+      <div class="profile-challenges-box">
+        
       </div>
     </div>
     

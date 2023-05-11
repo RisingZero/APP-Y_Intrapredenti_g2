@@ -31,7 +31,7 @@ export class RatingComponent  implements OnInit {
     this.ratingBtns.forEach(btn => {
       btn.nativeElement.classList.remove('selected');
     });
-    this.ratingBtns.get(value - 1)?.nativeElement.classList.add('selected');
+    this.ratingBtns.get(this.rating - 1)?.nativeElement.classList.add('selected');
   }
 
 }

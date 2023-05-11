@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { ComponentsModule } from './components/components.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 
 @Component({

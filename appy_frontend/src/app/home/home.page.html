@@ -75,7 +75,36 @@
         <svg width="245" height="245" viewBox="0 0 245 245" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="122.5" cy="122.5" r="107.5" [style.stroke]="modalProgressColor" stroke-opacity="0.2" stroke-width="30"/>
           <circle #progressOverlayMeter id="progress-modal-circle-meter"  cx="122.5" cy="122.5" r="107.5" [style.stroke]="modalProgressColor" [style.strokeDasharray]="modalProgressCircleDraw" stroke-linecap="round" stroke-width="30" />
-        </svg>  
+        </svg>
+        <div class="progress-text">
+          <div class="progress-complete">{{progressComplete}}</div>
+          <div class="progress-outof">/{{progressOutOf}}</div>
+        </div>
+      </div>
+    </app-overlay-box>
+
+    <app-overlay-box (onClickClose)="closeModal()" *ngIf="isBoostOpen">
+      <h1 class="boost-modal-title">Boost</h1>
+      <div class="boost-pages-box">
+        <div class="boost-page" *ngFor="let page of boostPages; let i = index">
+          <div class="boost-circle" *ngFor="let circle of page.circles; let j = index" 
+            [style.backgroundColor]="page.color" 
+            [style.border]="(selectedBoost && selectedBoost.id === (i * 10 + j)) ? '4px solid var(--ion-color-primary)' : 'none'"
+            (click)="selectBoost(i * 10 + j, page.color)">
+            <ion-icon [src]="circle.icon"></ion-icon>
+          </div>
+        </div>
+      </div>
+      <div class="activate-boost-btn" [style.backgroundColor]="selectedBoost ? selectedBoost.color : '#fff'" [style.opacity]="selectedBoost ? 1 : 0" (click)="activateBoost()">
+        ATTIVA
+      </div>
+    </app-overlay-box>
+
+    <app-overlay-box (onClickClose)="closeModal()" *ngIf="isSurveyOpen">
+      <h1 class="survey-modal-title">Come ti senti oggi <span>{{user.name}}</span>?</h1>
+      <app-rating primary="var(--ion-color-primary)" secondary="#fff" (onChange)="onRatingClick($event)"></app-rating>
+      <div class="survey-confirm-btn" [style.opacity]="(ratingValue !== -1) ? 1 : 0" (click)="submitSurvey()">
+        <ion-icon src="../../assets/svgs/back-arrow-icon.svg"></ion-icon>
       </div>
     </app-overlay-box>
 

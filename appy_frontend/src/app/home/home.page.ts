@@ -31,7 +31,53 @@ export class HomePage implements OnInit {
   isModalProgressOpen: boolean = false;
   modalProgressTitle: string = '';
   modalProgressColor: string = '';
+  progressComplete: string = '02';
+  progressOutOf: string = '04';
 
+  isBoostOpen: boolean = false;
+  selectedBoost: any = undefined;
+
+  isSurveyOpen: boolean = false;
+  ratingValue: number = -1;
+
+  boostPages = [
+    {
+      color: '#ffb985',
+      circles: [
+        {icon: '../../assets/svgs/exp-boost.svg'},
+        {icon: '../../assets/svgs/exp-boost.svg'},
+        {icon: '../../assets/svgs/exp-boost.svg'},
+        {icon: '../../assets/svgs/exp-boost.svg'},
+      ]
+    },
+    {
+      color: '#00b89f',
+      circles: [
+        {icon: '../../assets/svgs/chat-boost.svg'},
+        {icon: '../../assets/svgs/chat-boost.svg'},
+        {icon: '../../assets/svgs/chat-boost.svg'},
+        {icon: '../../assets/svgs/chat-boost.svg'},
+      ]
+    },
+    {
+      color: '#BDB4FF',
+      circles: [
+        {icon: '../../assets/svgs/time-boost.svg'},
+        {icon: '../../assets/svgs/time-boost.svg'},
+        {icon: '../../assets/svgs/time-boost.svg'},
+        {icon: '../../assets/svgs/time-boost.svg'},
+      ]
+    },
+    {
+      color: '#4747F2',
+      circles: [
+        {icon: '../../assets/svgs/level-boost.svg'},
+        {icon: '../../assets/svgs/level-boost.svg'},
+        {icon: '../../assets/svgs/level-boost.svg'},
+        {icon: '../../assets/svgs/level-boost.svg'},
+      ]
+    }
+  ]
 
   constructor(
     private api: ApiService
@@ -88,14 +134,20 @@ export class HomePage implements OnInit {
       roundPercent = this.user.expProgress;
       this.modalProgressTitle = 'Esperienza';
       this.modalProgressColor = '#26B5A0';
+      this.progressComplete = '200';
+      this.progressOutOf = '400';
     } else if (type === 'sfide') {
       roundPercent = this.user.sfideProgress;
       this.modalProgressTitle = 'Sfide';
       this.modalProgressColor = '#BEB3FF';
+      this.progressComplete = '02';
+      this.progressOutOf = '03';
     } else if (type === 'chall') {
       roundPercent = this.user.challProgress;
       this.modalProgressTitle = 'Challenge';
       this.modalProgressColor = '#FFB985';
+      this.progressComplete = '02';
+      this.progressOutOf = '08';
     }
 
     const roundRadius = 107.5;
@@ -105,13 +157,37 @@ export class HomePage implements OnInit {
 
   closeModal() {
     this.isModalProgressOpen = false;
+    this.isBoostOpen = false;
+    this.isSurveyOpen = false;
   }
 
   onSurveyClick() {
-    console.debug('survey!');
+    this.isSurveyOpen = true;
+  }
+
+  onRatingClick(value: number) {
+    this.ratingValue = value;
+  }
+
+  submitSurvey() {
+    if (this.ratingValue !== -1) {
+      console.log(this.ratingValue);
+      this.ratingValue = -1;
+      this.isSurveyOpen = false;
+    }
   }
 
   onBoostClick() {
-    console.debug('boost!');
+    this.isBoostOpen = true;
+  }
+
+  selectBoost(value: number, color: string) {
+    this.selectedBoost = {id: value, color: color};
+    console.log(this.selectedBoost);
+  }
+
+  activateBoost() {
+    this.selectedBoost = undefined;
+    this.isBoostOpen = false;
   }
 }

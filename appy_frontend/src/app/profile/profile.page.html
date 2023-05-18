@@ -1,64 +1,72 @@
-<ion-content [fullscreen]="true">
-
-  <div class="profile-header">
-    <div id="propic-circle" >
-      <div id="user-progress-box">
-        <div class="user-progress-circle" >
-          <svg #userProgressBar viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" data-value="1">
-            <circle r="45" cx="50" cy="50" />
-            <!-- 282.78302001953125 is auto-calculated by path.getTotalLength() -->
-            <path class="meter" d="M5,50a45,45 0 1,0 90,0a45,45 0 1,0 -90,0" stroke-linecap="round" stroke-linejoin="round" stroke-dashoffset="282.78302001953125" stroke-dasharray="282.78302001953125" />
-            <!-- Value automatically updates based on data-value set above -->
-            <text x="50" y="50" text-anchor="middle" dominant-baseline="central" font-size="40">{{user.level}}</text>
-          </svg>
+<ion-content [fullscreen]="true" scroll-y="false">
+<div id="container">
+  <div style="padding:70px 0 40px 0 ;background-color: #fff;display: flex;justify-content: center;">
+    <div class="profile-header">
+      <div id="propic-circle" >
+        <div id="user-progress-box">
+          <div class="user-progress-circle" >
+            <svg #userProgressBar viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" data-value="1">
+              <circle r="45" cx="50" cy="50" />
+              <!-- 282.78302001953125 is auto-calculated by path.getTotalLength() -->
+              <path class="meter" d="M5,50a45,45 0 1,0 90,0a45,45 0 1,0 -90,0" stroke-linecap="round" stroke-linejoin="round" stroke-dashoffset="282.78302001953125" stroke-dasharray="282.78302001953125" />
+              <!-- Value automatically updates based on data-value set above -->
+              <text x="50" y="50" text-anchor="middle" dominant-baseline="central" font-size="40">{{user.level}}</text>
+            </svg>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div style="position: absolute;top:30px;right: 10%;">
-      <div style="font-size: 20px;font-weight: bold;color: var(--ion-color-primary);">{{user.name}} {{user.surname}}</div>
-      <div style="font-size: 15px;">@{{user.username}}</div>
+  
+      <div style="margin:auto;">
+        <div style="font-size: 27px;font-weight: bold;">{{user.name}} {{user.surname}}</div>
+        <div style="font-size: 17px;">@{{user.username}}</div>
+      </div>
     </div>
   </div>
+  <div style="width: 100%;position:relative;top:-7px;height: 50px;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1010 126.38"><defs><style>.cls-1{fill:#fff;}</style></defs><title>Risorsa 3</title><g id="Livello_2" data-name="Livello 2"><g id="Livello_1-2" data-name="Livello 1"><path class="cls-1" d="M1009.94,118.64c-18.32,2.13-36.6,5-55,6.22-23.36,1.62-46.83,1.29-70.26,1.5-20,.19-39.9-1.2-59.71-2.91-26.77-2.31-53.43-5.89-80-9.87-42.7-6.4-85.1-14.5-127.14-24-53.32-12.07-106.6-24.31-160.26-34.82C396,42.67,334,33.43,271,34.71,216,35.83,162.9,47.62,110.61,63.62a827.06,827.06,0,0,0-102,38.25c-2.33,1.07-4.85,1.71-7.29,2.55C1.29,80.67.3,23.74,0,0,91.65.15,186.35,0,278,0c244.68,0,487.32.14,732,0C1009.63,28.49,1009.94,90.15,1009.94,118.64Z"/></g></g></svg>
+  </div>
+  
 
   
-  <div class="profile-body">
-    <div class="profile-challenges">
-      <div id="subtitle" style="color:#fff">Challenge</div>
-      <div class="profile-challenges-box">
-        <div>
-          <svg class="challenge-icon-bg">
-            <path style="fill:#00b79f" d="M56.5 1.88675C59.594 0.100422 63.406 0.100423 66.5 1.88675L117.555 31.3633C120.649 33.1496 122.555 36.4508 122.555 40.0235V98.9765C122.555 102.549 120.649 105.85 117.555 107.637L66.5 137.113C63.406 138.9 59.594 138.9 56.5 137.113L5.44521 107.637C2.3512 105.85 0.44521 102.549 0.44521 98.9765V40.0235C0.44521 36.4508 2.3512 33.1496 5.44521 31.3632L56.5 1.88675Z"/>
-          </svg>
-        </div>
-        <div>
-          <svg class="challenge-icon-bg">
-            <path style="fill:#beb3ff" d="M56.5 1.88675C59.594 0.100422 63.406 0.100423 66.5 1.88675L117.555 31.3633C120.649 33.1496 122.555 36.4508 122.555 40.0235V98.9765C122.555 102.549 120.649 105.85 117.555 107.637L66.5 137.113C63.406 138.9 59.594 138.9 56.5 137.113L5.44521 107.637C2.3512 105.85 0.44521 102.549 0.44521 98.9765V40.0235C0.44521 36.4508 2.3512 33.1496 5.44521 31.3632L56.5 1.88675Z"/>
-          </svg>
-        </div>
-        <div>
-          <svg class="challenge-icon-bg">
-            <path d="M56.5 1.88675C59.594 0.100422 63.406 0.100423 66.5 1.88675L117.555 31.3633C120.649 33.1496 122.555 36.4508 122.555 40.0235V98.9765C122.555 102.549 120.649 105.85 117.555 107.637L66.5 137.113C63.406 138.9 59.594 138.9 56.5 137.113L5.44521 107.637C2.3512 105.85 0.44521 102.549 0.44521 98.9765V40.0235C0.44521 36.4508 2.3512 33.1496 5.44521 31.3632L56.5 1.88675Z"/>
-          </svg>
-        </div>
-        <div>
-          <svg class="challenge-icon-bg">
-            <path d="M56.5 1.88675C59.594 0.100422 63.406 0.100423 66.5 1.88675L117.555 31.3633C120.649 33.1496 122.555 36.4508 122.555 40.0235V98.9765C122.555 102.549 120.649 105.85 117.555 107.637L66.5 137.113C63.406 138.9 59.594 138.9 56.5 137.113L5.44521 107.637C2.3512 105.85 0.44521 102.549 0.44521 98.9765V40.0235C0.44521 36.4508 2.3512 33.1496 5.44521 31.3632L56.5 1.88675Z"/>
-          </svg>
-        </div> 
+  <div class="profile-challenges">
+    <div id="subtitle" style="color:#fff">Medaglie</div>
+    <div class="profile-challenges-box">
+      <div style="display: flex;align-items: center;">
+        <svg class="challenge-icon-bg">
+        
+          <path style="fill:#00b79f" d="M56.5 1.88675C59.594 0.100422 63.406 0.100423 66.5 1.88675L117.555 31.3633C120.649 33.1496 122.555 36.4508 122.555 40.0235V98.9765C122.555 102.549 120.649 105.85 117.555 107.637L66.5 137.113C63.406 138.9 59.594 138.9 56.5 137.113L5.44521 107.637C2.3512 105.85 0.44521 102.549 0.44521 98.9765V40.0235C0.44521 36.4508 2.3512 33.1496 5.44521 31.3632L56.5 1.88675Z"/>
           
+        </svg>
+        
       </div>
-    </div>
-    
-    <div class="profile-interests">
-      <div id="subtitle" style="color:#fff">Interessi</div>
-      <div class="profile-interests-box">
-        <div class="profile-interests-interest" style="background-color: rgb(156, 90, 156);"><div>Corsa</div> </div>
-        <div class="profile-interests-interest" style="background-color: rgb(78, 89, 231);"><div>Serie TV</div></div> 
-        <div class="profile-interests-interest" style="background-color: rgb(207, 150, 64);"><div>Tennis</div></div>
-        <div class="profile-interests-interest" style="background-color: rgb(61, 158, 66);"><div>Piante</div></div>
+      <div>
+        <svg class="challenge-icon-bg-empty">
+          <path d="M56.5 1.88675C59.594 0.100422 63.406 0.100423 66.5 1.88675L117.555 31.3633C120.649 33.1496 122.555 36.4508 122.555 40.0235V98.9765C122.555 102.549 120.649 105.85 117.555 107.637L66.5 137.113C63.406 138.9 59.594 138.9 56.5 137.113L5.44521 107.637C2.3512 105.85 0.44521 102.549 0.44521 98.9765V40.0235C0.44521 36.4508 2.3512 33.1496 5.44521 31.3632L56.5 1.88675Z"/>
+        </svg>
       </div>
+      <div>
+        <svg class="challenge-icon-bg-empty">
+          <path d="M56.5 1.88675C59.594 0.100422 63.406 0.100423 66.5 1.88675L117.555 31.3633C120.649 33.1496 122.555 36.4508 122.555 40.0235V98.9765C122.555 102.549 120.649 105.85 117.555 107.637L66.5 137.113C63.406 138.9 59.594 138.9 56.5 137.113L5.44521 107.637C2.3512 105.85 0.44521 102.549 0.44521 98.9765V40.0235C0.44521 36.4508 2.3512 33.1496 5.44521 31.3632L56.5 1.88675Z"/>
+        </svg>
+      </div>
+      <div>
+        <svg class="challenge-icon-bg-empty">
+          <path d="M56.5 1.88675C59.594 0.100422 63.406 0.100423 66.5 1.88675L117.555 31.3633C120.649 33.1496 122.555 36.4508 122.555 40.0235V98.9765C122.555 102.549 120.649 105.85 117.555 107.637L66.5 137.113C63.406 138.9 59.594 138.9 56.5 137.113L5.44521 107.637C2.3512 105.85 0.44521 102.549 0.44521 98.9765V40.0235C0.44521 36.4508 2.3512 33.1496 5.44521 31.3632L56.5 1.88675Z"/>
+        </svg>
+      </div> 
+        
     </div>
   </div>
-
+  <div class="profile-interests">
+    <div id="subtitle" style="color:#fff">Interessi</div>
+    <div class="profile-interests-line">
+      <div class="profile-interests-interest" style="background-color: #BEB3FF;"><div>Corsa</div> </div>
+      <div class="profile-interests-interest" style="background-color: #4747F2;"><div>Serie TV</div></div> 
+    </div>
+    <div class="profile-interests-line">
+      <div class="profile-interests-interest" style="background-color: #FFB47C;"><div>Tennis</div></div>
+      <div class="profile-interests-interest" style="background-color: #00B79F;"><div>Piante</div></div>
+    </div>
+  </div>
+</div>
 </ion-content>

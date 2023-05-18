@@ -3,6 +3,10 @@
   width: 100%;
   background-color: aqua;
 }
+#subtitle{
+  font-size: 1.5em;
+  font-weight: 600;
+}
 
 .profile-header{
   margin: 50px auto;
@@ -116,6 +120,8 @@
   position: relative;
   left: 10%;
   top: 30px;
+  width: 80%;
+  
 
   .profile-challenges-box{
     display: flex;
@@ -123,9 +129,12 @@
     overflow-x: scroll;
 
     .challenge-icon-bg {
-      position: absolute;
-      right: 20px;
-      bottom: -10px;
+      width:100px;
+      margin: 10px;
+      path{
+        fill: var(--ion-color-medium);
+        scale:0.8;
+      }
     }
 
     .challenge-icon {

@@ -17,7 +17,6 @@ import { ApiService } from '../_services';
 export class ProfilePage implements OnInit {
 
   @ViewChild('userProgressBar') userProgressBar: any;
-  @ViewChild('levelProgressBar') levelProgressBar: any;
 
   user: User;
   progress=0;
@@ -70,7 +69,6 @@ export class ProfilePage implements OnInit {
       // Set the Offset
       path.style.strokeDashoffset = Math.max(0, to);
     });
-    this.levelProgressBar.nativeElement.style.width = `${value}%`;
   }
   
 }

@@ -119,15 +119,19 @@
   .profile-challenges-box{
     display: flex;
     width: 100%;
+    height: fit-content;
+    margin: 15px 0;
     overflow-x: scroll;
     justify-content: space-between;
     
 
     .challenge-icon-bg {
-      width:100px;
-      path{
+      width: 90px;
+      height: 90px;;
+
+      path {
         fill: var(--ion-color-medium);
-        scale:0.8;
+        scale:0.6;
       }
     }
 
@@ -136,9 +140,10 @@
       display: flex;
 
       justify-content: center;
-      width:100px;
-      path{
+      width: 90px;
+      height: 90px;
 
+      path {
         fill: #FFFEEC;
         opacity: 20%;
         scale:0.6;

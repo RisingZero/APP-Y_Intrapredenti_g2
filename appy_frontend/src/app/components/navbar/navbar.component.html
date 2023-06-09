@@ -1,7 +1,7 @@
-<ion-tab-bar slot="bottom" [style.display]="selectedPath.startsWith('/login') ? 'none' : '\'\'' ">
-  <ion-tab-button class="no-ripple" tab="home" layout="icon-start" [class.tab-selected]="selectedPath.startsWith('/home') || selectedPath === '/'">
+<ion-tab-bar slot="bottom" [style.display]="(selectedPath.startsWith('/login') || selectedPath === '/') ? 'none' : '\'\'' ">
+  <ion-tab-button class="no-ripple" tab="home" layout="icon-start" [class.tab-selected]="selectedPath.startsWith('/home')">
     <ion-icon name="home-outline"></ion-icon>
-    <ion-label *ngIf="selectedPath.startsWith('/home') || selectedPath === '/'">Home</ion-label>
+    <ion-label *ngIf="selectedPath.startsWith('/home')">Home</ion-label>
   </ion-tab-button>
   <ion-tab-button class="no-ripple" tab="chat" layout="icon-start" [class.tab-selected]="selectedPath.startsWith('/chat')">
     <ion-icon name="chatbubble-outline"></ion-icon>

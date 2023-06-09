@@ -1,4 +1,4 @@
-<ion-tab-bar slot="bottom">
+<ion-tab-bar slot="bottom" [style.display]="selectedPath.startsWith('/login') ? 'none' : '\'\'' ">
   <ion-tab-button class="no-ripple" tab="home" layout="icon-start" [class.tab-selected]="selectedPath.startsWith('/home') || selectedPath === '/'">
     <ion-icon name="home-outline"></ion-icon>
     <ion-label *ngIf="selectedPath.startsWith('/home') || selectedPath === '/'">Home</ion-label>
